@@ -179,11 +179,11 @@ contract LGBiT is StandardToken {
 
     function LGBiT() payable {
         owner = msg.sender;
-        founder = 0x006eCc939043E23CDdf3705535922f770994C12D;
+        founder = 0x00A691299526E4DC3754F8e2A0d6788F27c0dc7e;
 
         // Sub from total tokens bounty pool
         totalTokens = safeSub(totalTokens, bounty);
-        totalSupply = totalTokens;
+        totalSupply = safeMul(totalTokens, multiplier);
         balances[owner] = safeMul(totalSupply, multiplier);
     }
 
